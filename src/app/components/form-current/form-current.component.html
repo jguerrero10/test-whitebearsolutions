@@ -1,0 +1,54 @@
+<section class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1>Formulario: {{formDetail.title}} </h1>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-10">
+        <div class="card card-primary">
+          <div class="card-header">
+            <h2 class="card-title">{{ formDetail.title }}</h2>
+          </div>
+          <form [formGroup]="fieldsForm" class="form-horizontal col-md-12 m-1" (ngSubmit)="onSubmit()">
+            <div class="card-body">
+              <p class="card-text">{{ formDetail.description }}</p>
+              <div class="alert alert-danger" *ngIf="error" role="alert">
+                <ul>
+                  <li *ngFor="let err of errors | ObjToArrValue">
+                    {{err | uppercase}}: 
+                    <ul>
+                      <li *ngIf="errors[err].required">Este campo es requerido</li>
+                      <li *ngIf="errors[err].pattern">Se necesita un patrón {{errors[err].pattern.requiredPattern}}</li>
+                    </ul>
+                    
+                  </li>
+                </ul>                         
+              </div>
+              <div class="form-group" *ngFor="let field of formsProps">          
+                <label>{{field.label}}</label> 
+                <div *ngIf="field.type == 'textarea' then content else other_content"></div>
+                <ng-template #content>
+                  <textarea class="form-control">{{field.value}}</textarea> 
+                </ng-template>
+                <ng-template #other_content>
+                  <input [type]="field.type" class="form-control" value="{{field.value}}" formControlName="{{field.key}}">
+                </ng-template>     
+              </div> 
+            </div>       
+            <div class="card-footer">
+              <button class="btn btn-primary mt-2" type="submit">Enviar</button>
+            </div>
+        
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

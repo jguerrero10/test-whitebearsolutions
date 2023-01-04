@@ -1,0 +1,76 @@
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1>Home</h1>
+      </div>
+    </div>
+    </div>
+</section>
+<section class="content">
+    <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Presentación</h3>
+
+          <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+              <i class="fas fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+        </div>
+        <div class="card-body">
+          <h3><strong>Prueba Técnica para Frontend</strong></h3>
+          <p class="text-end">Presentada por: Joel Guerrero</p>
+          <p>Para la prueba se utilizó Angular en su <strong>versión 15.0.4</strong>, aplicando pruebas unitarias utilizando Karma, para la emulación del Backend se utilizó la herramienta web
+            <a href="https://mockapi.io/">mockapi.io</a>, esta última permitió generar la estructura solicitada, además de generando respuestas de acuerdo con el enunciado.
+            </p>
+        <br>
+        <h3>Análisis del Problema</h3>
+        <p>Se analiza la estructura de las peticiones con sus respectivos response, 
+            teniendo en cuenta que el problema parte de que se tiene un backend con respuesta de Formularios ya existente, se genera una api mockup y se crear datos fakes, 
+            con un rango medio de aleatoriedad para tener márgenes menores de errores. La api que se creó se en encuentra en el servidor con dirección 
+        </p>
+            <a href="https://63b2fe5b5901da0ab3742ed6.mockapi.io/">https://63b2fe5b5901da0ab3742ed6.mockapi.io/</a>, de ahí se configura los endpoints de back:
+            <u>
+                <li>GET: <a href="https://63b2fe5b5901da0ab3742ed6.mockapi.io/form/:id">https://63b2fe5b5901da0ab3742ed6.mockapi.io/form/:id</a></li>
+                <li>POST: <a href="https://63b2fe5b5901da0ab3742ed6.mockapi.io/form/:id">https://63b2fe5b5901da0ab3742ed6.mockapi.io/form/:id</a></li>
+            </u>
+        <br>
+        <h3>Desarrollo</h3>
+        <p>Se crean dos componentes uno denominado <strong>Home</strong> que tendrá la funcionalidad inicial, 
+            pero no tiene mucha lógica, solo es para servir esta información. 
+            EL otro se denomina <strong>CurrentComponent</strong> y tiene toda la lógica para controlar los formularios tanto entrantes como los salientes, 
+            se apoya en dos servicios, uno que se llama <strong>formServices</strong> y el otro que se llama <strong>HttpServices</strong>, el primero tiene las función de 
+            convertir y gestionar el transporte desde y para el componente, así como la conversión de las respuesta recibidas del servidor, y todo ese proceso lo realiza
+             utilizando <strong>HttpServices</strong> , que se encarga de gestionar los endpoints y de proveer la ruta de forma literal.</p>
+        <p>
+            Para renderizar los formularios se utilizó la renderizaron dinámica de angular, utilizando <strong>FormBuilder</strong>, esto permitió que la construcción de los campos sea un poco más sencillo, de esta forma la utilidad <strong>Validators</strong> de Angular tendría mas sentidos para especificar directamente los campos requeridos. 
+        </p>
+        <p>
+            Las rutas creadas para la gestión del front son:
+        </p>
+        <ul>
+            <li><a href="http://localhost:4200/Home">http://localhost:4200/Home</a></li>
+            <li><a href="http://localhost:4200/form/:id">http://localhost:4200/form/:id</a></li>
+        </ul>
+        <p>
+            Se crean dos modelos uno que se llama FormModel y Properties, los dos son para gestionar los tipos de datos en el sistema, sin embargo fue mas utili crear desde el FormBuilder con los campos entrantes y con las propiedades.
+        </p>
+        <br>
+        <h3>Retrospectiva</h3>
+        <p>Se intento realizar la prueba en su totalidad, sin embargo, luego de aplicar unas pruebas unitarias resultaron un 75% total pasadas, los errores visto son conexión “No provider for HttpClient!” lo que me hace pensar que falla en conexión al servidor o en la demora de conexión y en funcionamiento es cuando se tiene respuesta 400 http. Otro error que no se cumplió es si el servidor responde con un error diferente al mostrado en la prueba, por ejemplo, si el servidor backend esta offline, puede tener una salida no esperada.
+            Considero que la parte visual puede mejorar y la funcionalidad en algunos detalles muy específicos se pueden optimizar de forma que sea mucho más reactiva.
+            La herramienta Mockup Fake no tiene salida POST por medio de un id, y es difícil gestionar o configurar, por lo que las pruebas se hicieron por un método put, sin embargo se puede cambiar al método POST el cual fue probado en Local.
+            </p>
+            <br>
+        <h3>En Conclusión</h3>
+
+        <p>Excelente prueba, me divertí mucho y se aprendió muchísimo que es lo más importante. Me es grato saber que fue leído esta información, ya que para mi es importante conocer su opinión con referencia a la prueba, por ende solicito amablemente una retroalimentación al respecto, independiente del resultado, esto es de gran ayuda para seguir creciendo como profesional.</p>
+      
+        </div>
+        </div>
+</section>
+
